@@ -1,3 +1,5 @@
+from turtle import title
+
 import numpy as np
 import matplotlib.pyplot as plt
 from LagrangeInterpolator import LagrangeInterpolator
@@ -16,9 +18,10 @@ def make_plot(interpolator: LagrangeInterpolator):
     interpolation_result_grid = np.array([interp_res.subs(x, x_arg).n(4)
                                           for x_arg in x_grid])
 
-    plt.plot(x_grid, f_grid, color='orange')
-    plt.plot(x_grid, interpolation_result_grid, color='blue')
+    plt.plot(x_grid, f_grid, color='orange', label='base function')
+    plt.plot(x_grid, interpolation_result_grid, color='blue', label='interpolated function')
     plt.grid()
+    plt.legend()
 
 
 def compare_errors(filename, interpolator: LagrangeInterpolator, steps_count):
