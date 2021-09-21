@@ -40,5 +40,3 @@ def compare_errors(filename, interpolator: LagrangeInterpolator, steps_count):
                 file.write(f'not ok: {real_error_res}\t>\t{max_error_res}\n')
 
     return is_ok
-
-
