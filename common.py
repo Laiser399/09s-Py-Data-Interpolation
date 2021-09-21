@@ -21,10 +21,10 @@ def make_plot(interpolator: LagrangeInterpolator):
     plt.grid()
 
 
-def compare_errors(filename, interpolator: LagrangeInterpolator, real_error, steps_count):
+def compare_errors(filename, interpolator: LagrangeInterpolator, steps_count):
     x = interpolator.x
     a, b = interpolator.a, interpolator.b
-    max_error = interpolator.max_error
+    real_error, max_error = interpolator.real_error, interpolator.max_error
 
     step = (b - a) / steps_count
     is_ok = True

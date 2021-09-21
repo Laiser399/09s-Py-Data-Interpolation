@@ -19,6 +19,7 @@ class LagrangeInterpolator(object):
 
         self.M_np1 = self.calculate_M_np1()
 
+        self.real_error = self.calculate_real_error()
         self.max_error = self.calculate_max_error()
 
     def interpolate(self):
@@ -42,6 +43,9 @@ class LagrangeInterpolator(object):
         res.append(self.b)
 
         return max([Abs(df_np1.subs(self.x, r)) for r in res])
+
+    def calculate_real_error(self):
+        return Abs(self.interpolation_result - self.f)
 
     def calculate_max_error(self):
         multiply_elements = [self.x - x_i for x_i in self.x_arr]
